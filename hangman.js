@@ -1,9 +1,9 @@
 'use strict'
 
-const Hangman = function(word, guesses) {
+const Hangman = function(word, guessesRemaining) {
   this.word = word.toLowerCase().split('')
-  this.guesses = guesses
-  this.guessedLetters = ['a']
+  this.guessesRemaining = guessesRemaining
+  this.guessedLetters = []
 }
 
 Hangman.prototype.getPuzzle = function() {
@@ -18,9 +18,27 @@ Hangman.prototype.getPuzzle = function() {
   return puzzle;
 }
 
+Hangman.prototype.getGuess = function(guess) {
+  guess = guess.toLowerCase()
+  //find user guess in guessed letters array
+  const isUsed = this.guessedLetters.find((letter) => {
+    return letter === guess
+  })
+  //if not found then add to guessed letters array
+  if (!isUsed) {
+    this.guessedLetters.push(guess);
+  }
+  //if guess not in word then reduce number of guesses allowed
+  const isInWord = this.word.includes(guess)
+  if (!isInWord) {
+    this.guessesRemaining--
+  }
+}
+
 
 const game1 = new Hangman('Goat', 5);
-const game2 = new Hangman('Hilarious', 10);
+console.log(game1.getPuzzle())
+console.log(game1.guessesRemaining)
 
-console.log(game1.getPuzzle());
-console.log(game2.getPuzzle());
+
+
