@@ -35,10 +35,14 @@ Hangman.prototype.getGuess = function(guess) {
   }
 }
 
-
 const game1 = new Hangman('Goat', 5);
 console.log(game1.getPuzzle())
 console.log(game1.guessesRemaining)
 
-
+window.addEventListener('keypress', (e) => {
+  const guess = e.key
+  game1.getGuess(guess)
+  console.log(game1.getPuzzle())
+  console.log(game1.guessesRemaining)
+})
 
