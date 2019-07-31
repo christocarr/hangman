@@ -1,4 +1,3 @@
-const game1 = new Hangman('Goat', 5);
 
 //set up game status element
 const gameStatusEl = document.getElementById('gameStatusEl')
@@ -15,7 +14,10 @@ guessesRemainingDisplay.textContent = game1.guessesRemaining
 
 window.addEventListener('keypress', (e) => {
   const guess = e.key
-
+  //only allow guess if game status is playing
+  if (game1.gameStatus === 'playing') {
+    game1.getGuess(guess)
+  }
   game1.getGuess(guess)
   puzzle = game1.getPuzzle()
   wordToGuess.textContent = puzzle
