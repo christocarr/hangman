@@ -52,3 +52,17 @@ Hangman.prototype.getStatus = function() {
   }
 }
 
+//show message when game is finished or failed
+Hangman.prototype.getMessage = function() {
+  if (this.gameStatus === 'playing') {
+    return `Guesses remaining: ${this.guessesRemaining}`
+  }
+  else if (this.gameStatus === 'failed') {
+    return `Nice try! The word is "${game1.word.join('')}"`
+  } else {
+    return `Great work! You guessed the word correctly` 
+  }
+}
+
+const game1 = new Hangman('Goat', 5);
+
