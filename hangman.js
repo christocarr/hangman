@@ -35,5 +35,20 @@ Hangman.prototype.getGuess = function(guess) {
   }
 }
 
+//update status of game while making guesses
+Hangman.prototype.getStatus = function() {
+  //when all letters of puzzle word guessed then update status as finished 
+  let finished = this.word.every(letter => {
+    return this.guessedLetters.includes(letter)
+  })
 
+  // when user runs out of guesses then update as failed
+  if (this.guessesRemaining <= 0) {
+    this.gameStatus = 'failed'
+  } else if (finished) {
+    this.gameStatus = 'finished'
+  } else {
+    this.gameStatus = 'playing'
+  }
+}
 
