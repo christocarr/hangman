@@ -4,6 +4,7 @@ const Hangman = function(word, guessesRemaining) {
   this.word = word.toLowerCase().split('')
   this.guessesRemaining = guessesRemaining
   this.guessedLetters = []
+  this.gameStatus = 'playing'
 }
 
 Hangman.prototype.getPuzzle = function() {
@@ -12,7 +13,7 @@ Hangman.prototype.getPuzzle = function() {
     if (this.guessedLetters.includes(letter) || letter === ' ') {
       puzzle += letter;
     } else {
-      puzzle += '*';
+      puzzle += ' _ '
     }
   })
   return puzzle;
@@ -33,6 +34,7 @@ Hangman.prototype.getGuess = function(guess) {
   if (!isInWord) {
     this.guessesRemaining--
   }
+  this.getStatus()
 }
 
 //update status of game while making guesses
