@@ -18,3 +18,11 @@ window.addEventListener('keypress', (e) => {
   wordToGuess.textContent = puzzle
   gameStatusEl.textContent = game1.getMessage()
 })
+
+getGame((error, game) => {
+  if (error) {
+    console.log(`Error: ${error}`)
+  } else {
+    console.log(game)
+  }
+})
