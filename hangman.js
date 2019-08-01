@@ -42,7 +42,7 @@ class Hangman {
   getStatus() {
     //when all letters of puzzle word guessed then update status as finished 
     let finished = this.word.every(letter => {
-      return this.guessedLetters.includes(letter)
+      return this.guessedLetters.includes(letter) || letter === ' ' 
     })
 
     // when user runs out of guesses then update as failed
