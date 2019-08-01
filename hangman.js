@@ -14,7 +14,7 @@ class Hangman {
       if (this.guessedLetters.includes(letter) || letter === ' ') {
         puzzle += letter;
       } else {
-        puzzle += ' _ '
+        puzzle += '*'
       }
     })
     return puzzle;
@@ -67,5 +67,5 @@ class Hangman {
   }
 }
 
-const game1 = new Hangman('Goat', 5);
+const game1 = new Hangman('Hungry Goat', 5);
 
