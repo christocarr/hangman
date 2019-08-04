@@ -67,5 +67,5 @@ class Hangman {
   }
 }
 
-const game1 = new Hangman('Hungry Goat', 5);
+
 
