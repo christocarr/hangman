@@ -1,17 +1,11 @@
-const getGame = function(callback) {
+'use strict'
 
-  //Making an HTTP request
-  const request = new XMLHttpRequest()
-
-  request.addEventListener('readystatechange', (ev) => {
-    if (ev.target.readyState === 4 && ev.target.status === 200) {
-      const data = JSON.parse(ev.target.responseText)
-      callback(undefined, data.puzzle)
-    } else if (ev.target.readyState === 4) {
-      callback('An error occured', undefined)
-    }
-  })
-
-  request.open('GET', 'http://puzzle.mead.io/puzzle')
-  request.send()
+const getGame = async (wordCount) => {
+  const response = await fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+  if (response.status === 200) {
+    const data = await response.json()
+    return data.puzzle
+  } else {
+    throw new Error('Unable to get new puzzle')
+  }
 }
