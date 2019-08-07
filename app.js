@@ -18,16 +18,20 @@ window.addEventListener('keypress', (e) => {
 
 //show word puzzle and game status message
 const render = () => {
-  let puzzle = game1.getPuzzle()
-  wordToGuess.textContent = puzzle
+  const puzzle = game1.getPuzzle()
+  wordToGuess.innerHTML = ''
   gameStatusEl.textContent = game1.getMessage()
+  puzzle.split('').forEach(letter => {
+    const letterEl = document.createElement('span')
+    letterEl.textContent = letter
+    wordToGuess.appendChild(letterEl)
+  });
 }
 
 const startGame = async () => {
   const puzzle = await getGame('1')
   game1 = new Hangman(puzzle, 5)
   render()
-  console.log(game1)
 }
 
 //set up reset button
