@@ -19,9 +19,14 @@ p {
 }
 
 .word-to-guess {
-  margin-left: 0.5rem;
+  margin: 0.5rem;
   letter-spacing: 0.2em;
   font-size: 1.5rem;
+}
+
+span {
+  border-bottom: solid 1px #046161;
+  margin-right: 0.5em; 
 }
 
 .reset-button {
