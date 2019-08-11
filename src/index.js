@@ -1,5 +1,8 @@
 'use strict'
 
+import Hangman from './hangman'
+import getGame from './request'
+
 let game1
 
 //set up game status element
@@ -20,7 +23,7 @@ window.addEventListener('keypress', (e) => {
 const render = () => {
   const puzzle = game1.getPuzzle()
   wordToGuess.innerHTML = ''
-  gameStatusEl.textContent = game1.getMessage()
+  gameStatusEl.textContent = game1.getMessage
   puzzle.split('').forEach(letter => {
     const letterEl = document.createElement('span')
     letterEl.textContent = letter

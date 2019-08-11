@@ -56,16 +56,16 @@ class Hangman {
   }
 
   //show message when game is finished or failed
-  getMessage() {
+  get getMessage() {
     if (this.gameStatus === 'playing') {
       return `Guesses remaining: ${this.guessesRemaining}`
     } else if (this.gameStatus === 'failed') {
-      return `Nice try! The word is "${game1.word.join('')}"`
+      return `Nice try! The word is "${this.word.join('')}"`
     } else {
       return `Great work! You guessed the word correctly` 
     }
   }
 }
 
-
+export default Hangman
 

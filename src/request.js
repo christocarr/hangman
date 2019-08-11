@@ -9,3 +9,5 @@ const getGame = async (wordCount) => {
     throw new Error('Unable to get new puzzle')
   }
 }
+
+export default getGame
