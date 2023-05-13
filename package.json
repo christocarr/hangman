@@ -18,7 +18,7 @@
     "kind-of": "^6.0.3",
     "live-server": "^1.2.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^4.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
