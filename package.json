@@ -17,7 +17,7 @@
     "braces": "^3.0.2",
     "kind-of": "^6.0.3",
     "live-server": "^1.2.1",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.0"
   },
   "devDependencies": {
